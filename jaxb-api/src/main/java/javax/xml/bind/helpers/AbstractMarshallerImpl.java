@@ -225,7 +225,7 @@ public abstract class AbstractMarshallerImpl implements Marshaller
      * @param value of the formatted output flag.
      */
     protected void setFormattedOutput( boolean value ) {
-        formattedOutput = v;
+        formattedOutput = value;
     }
 
 
@@ -245,7 +245,7 @@ public abstract class AbstractMarshallerImpl implements Marshaller
      * @param value of the fragment flag.
      */
     protected void setFragment( boolean value ) {
-        fragment = v;
+        fragment = value;
     }
 
 
@@ -346,7 +346,7 @@ public abstract class AbstractMarshallerImpl implements Marshaller
         }
         if( JAXB_NO_NAMESPACE_SCHEMA_LOCATION.equals(name) ) {
             checkString( name, value );
-            setNoNamespaceSchemaLocation( location );
+            setNoNamespaceSchemaLocation( (String)value );
             return;
         }
         if( JAXB_SCHEMA_LOCATION.equals(name) ) {
@@ -383,7 +383,7 @@ public abstract class AbstractMarshallerImpl implements Marshaller
         if( JAXB_FORMATTED_OUTPUT.equals(name) )
             return isFormattedOutput()?Boolean.TRUE:Boolean.FALSE;
         if( JAXB_NO_NAMESPACE_SCHEMA_LOCATION.equals(name) )
-            return getNoNamespaceSchemaLocation());
+            return getNoNamespaceSchemaLocation();
         if( JAXB_SCHEMA_LOCATION.equals(name) )
             return getSchemaLocation();
         if( JAXB_FRAGMENT.equals(name) )
